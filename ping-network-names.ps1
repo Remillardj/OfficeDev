@@ -12,8 +12,8 @@ $rowMax = ($sheet.UsedRange.Rows).count
 
 function getNetworkNames {
    Param()
-   $ExcelSourceFile = "C:\Users\remillardj\OneDrive - Seattle Pacific University\TSS\STEM\Final Inventory 1617.xlsx"
-   $SheetName = "Classroom itemized"
+   $ExcelSourceFile = $file
+   $SheetName = $sheetName
    [System.Threading.Thread]::CurrentThread.CurrentCulture = [System.Globalization.CultureInfo]'en-US'
    $ExcelSourceObj = New-Object -comobject Excel.Application
    $ExcelSourceObj.Visible = $True
@@ -32,7 +32,7 @@ function getNetworkNames {
 
 $xl = New-Object -COM "Excel.Application"
 $xl.Visible = $true
-$wb = $xl.Workbooks.Open("C:\Users\remillardj\OneDrive - Seattle Pacific University\TSS\STEM\Final Inventory 1617.xlsx")
+$wb = $xl.Workbooks.Open($file)
 $ws = $wb.Sheets.Item(1)
 
 for ($i = 1; $i -le 3; $i++)
